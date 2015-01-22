@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Anagrams</title>
+        <style>
+            .letter-grid {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+
+    </head>
+    <body ng-app="anagramsApp">
+        <h1>
+            Anagrams
+        </h1>
+        
+        <div class="anagram-container" ng-controller="AnagramsController as anagrams">
+            <textarea ng-model="anagrams.baseText">
+
+            </textarea>
+                
+            <div class="letter-grid">
+                <span ng-repeat="letter in anagrams.baseText track by $index">
+                    {{letter}}
+                </span>
+            </div>
+
+            
+            
+                <p>
+                    {{anagrams.baseText}}
+                </p>
+        </div>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular.min.js"></script>
+        <script>
+
+            angular.module('anagramsApp', [])
+                    .controller('AnagramsController', AnagramsController);
+            
+            function AnagramsController(){
+                
+            }
+            
+            AnagramsController.prototype.reverse = function(baseText){
+                
+                
+            }
+
+        </script>
+    </body>
+</html>
