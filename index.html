@@ -21,8 +21,8 @@
 
             </textarea>
                 
-            <div class="letter-grid">
-                <span ng-repeat="letter in anagrams.baseText track by $index">
+            <div class="letter-grid" ng-style="grid-height" letter-height>
+                <span class="letter" ng-repeat="letter in anagrams.baseText track by $index" >
                     {{letter}}
                 </span>
             </div>
@@ -39,10 +39,19 @@
         <script>
 
             angular.module('anagramsApp', [])
-                    .controller('AnagramsController', AnagramsController);
+                    .controller('AnagramsController', AnagramsController)
+                    .directive('letter-height', function(){
+                      return{
+                        link: function(scope, element, attrs){
+                            console.log('fdaf');
+                        }
+                      };
+                    });
+
+
             
-            function AnagramsController(){
-                
+            function AnagramsController($scope){
+                var anagrams = this;
             }
             
             AnagramsController.prototype.reverse = function(baseText){
