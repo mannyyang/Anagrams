@@ -3,62 +3,51 @@
     <head lang="en">
         <meta charset="UTF-8">
         <title>Anagrams</title>
-        <style>
-            .letter-grid {
-                display: flex;
-                flex-direction: column;
-            }
-        </style>
+        <link rel="stylesheet" href="css/base.css"/>
 
     </head>
     <body ng-app="anagramsApp">
-        <h1>
-            Anagrams
-        </h1>
-        
-        <div class="anagram-container" ng-controller="AnagramsController as anagrams">
-            <textarea ng-model="anagrams.baseText">
-
-            </textarea>
-                
-            <div class="letter-grid" ng-style="grid-height" letter-height>
-                <span class="letter" ng-repeat="letter in anagrams.baseText track by $index" >
-                    {{letter}}
-                </span>
+        <header>
+            <h1>
+                Anagrams
+            </h1>
+        </header>
+        <section class="app-container" ng-controller="AnagramsController as anagrams">
+            <div class="textarea-container">
+                <textarea ng-model="anagrams.baseText"></textarea>
             </div>
 
-            
-            
-                <p>
-                    {{anagrams.baseText}}
-                </p>
-        </div>
+            <div class="input-container">
+                <h3>Number of Tiles per Column</h3>
+                <input type="range" min="1" max="50" ng-model="anagrams.columnNum"/>
+                <input type="text" ng-model="anagrams.columnNum"/>
+            </div>
 
-        
+            <section class="container">
+                <h2>Normal</h2>
+                <div class="letter-grid-container">
+                    <div class="letters" ng-style="{'height': anagrams.maxHeight + 'px'}">
+                        <div class="letter" ng-repeat="letter in anagrams.baseText track by $index">
+                            <span>{{letter}}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="container">
+                <h2>Reverse</h2>
+                <div class="letter-grid-container">
+                    <div class="letters" ng-style="{'height': anagrams.maxHeight + 'px'}">
+                        <div class="letter" ng-repeat="letter in anagrams.baseText | reverse track by $index">
+                            <span>{{letter}}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular.min.js"></script>
-        <script>
-
-            angular.module('anagramsApp', [])
-                    .controller('AnagramsController', AnagramsController)
-                    .directive('letter-height', function(){
-                      return{
-                        link: function(scope, element, attrs){
-                            console.log('fdaf');
-                        }
-                      };
-                    });
-
-
-            
-            function AnagramsController($scope){
-                var anagrams = this;
-            }
-            
-            AnagramsController.prototype.reverse = function(baseText){
-                
-                
-            }
-
-        </script>
+        <script src="js/app.js"></script>
     </body>
 </html>

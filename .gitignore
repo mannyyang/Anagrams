@@ -1,1 +1,6 @@
 .sass-cache
+.idea
+.idea/*
+.iml
+bower_components
+bower_components/*

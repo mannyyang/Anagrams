@@ -1,0 +1,67 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  font-size: 16px; }
+
+header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  header::after {
+    clear: both;
+    content: "";
+    display: table; }
+  header h1 {
+    text-align: center; }
+
+textarea {
+  width: 100%;
+  height: 75px;
+  font-size: 16px; }
+
+section.container {
+  padding: 10px 25px;
+  border: 1px solid grey;
+  margin: 25px 0px; }
+
+.app-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  margin: 0 auto; }
+  .app-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.letter-grid-container {
+  overflow: auto;
+  margin: 25px 0; }
+
+.letters {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  float: right;
+  max-width: 500px; }
+  .letters .letter {
+    width: 25px;
+    height: 25px;
+    border: 1px solid lightgray;
+    text-align: center;
+    line-height: 25px; }
+
+/*# sourceMappingURL=base.css.map */
